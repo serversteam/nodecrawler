@@ -1,5 +1,5 @@
 
-import app from "./app";
+import app from "./App";
 import http from 'http';
 const PORT = 3000;
 
