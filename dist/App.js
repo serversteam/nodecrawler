@@ -20,7 +20,7 @@ dotenv_1.default.config();
 class App {
     constructor() {
         this.route = new route_1.Route();
-        this.mongoUrl = process.env.FRONT_URL;
+        this.mongoUrl = process.env.MONGODB_URI;
         this.app = express_1.default();
         this.configureApp();
         this.initializeMongoConnection();
