@@ -9,7 +9,7 @@ class App {
     public app: express.Application;
     public corsOptions: cors.CorsOptions;
     public route: Route = new Route();
-    public mongoUrl: string = process.env.MONGODB_URI;
+    public mongoUrl: string = 'mongodb://localhost:27017/NodeScraper';
 
     constructor() {
         this.app = express();
@@ -28,7 +28,7 @@ class App {
             allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "X-Access-Token"],
             credentials: true,
             methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-            origin: 'http://localhost:3001',
+            origin: process.env.FRONT_URL,
             preflightContinue: false
         };
         this.app.use(cors(this.corsOptions));
