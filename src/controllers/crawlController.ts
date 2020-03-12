@@ -4,6 +4,8 @@ import { Request, Response } from 'express';
 import axios from 'axios';
 import cheerio from 'cheerio';
 import Queue from 'bull';
+import dotenv  from 'dotenv';
+dotenv.config();
 
 const Crawl = mongoose.model('scraper', CrawlModel);
 

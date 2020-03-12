@@ -8,10 +8,12 @@ const crawlModel_1 = require("../models/crawlModel");
 const axios_1 = __importDefault(require("axios"));
 const cheerio_1 = __importDefault(require("cheerio"));
 const bull_1 = __importDefault(require("bull"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const Crawl = mongoose_1.default.model('scraper', crawlModel_1.CrawlModel);
 class CrawlController {
     constructor() {
-        this.urlScraping = new bull_1.default('URL scraping', process.env.REDIS_URL);
+        this.urlScraping = new bull_1.default('URL scraping', process.env.MONGODB_URI);
     }
     getData(req, res) {
         Crawl.find({}, (err, data) => {

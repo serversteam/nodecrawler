@@ -15,10 +15,12 @@ const bodyParser = __importStar(require("body-parser"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const route_1 = require("./routes/route");
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 class App {
     constructor() {
         this.route = new route_1.Route();
-        this.mongoUrl = process.env.MONGODB_URI;
+        this.mongoUrl = process.env.FRONT_URL;
         this.app = express_1.default();
         this.configureApp();
         this.initializeMongoConnection();
@@ -32,7 +34,7 @@ class App {
             allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "X-Access-Token"],
             credentials: true,
             methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-            origin: 'http://localhost:3001',
+            origin: process.env.FRONT_URL,
             preflightContinue: false
         };
         this.app.use(cors_1.default(this.corsOptions));
