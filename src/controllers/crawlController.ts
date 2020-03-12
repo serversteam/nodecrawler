@@ -9,7 +9,7 @@ const Crawl = mongoose.model('scraper', CrawlModel);
 
 export class CrawlController {
 
-    private urlScraping = new Queue('URL scraping', 'redis://127.0.0.1:6379');
+    private urlScraping = new Queue('URL scraping', process.env.REDIS_URL);
     constructor() {
         
     }

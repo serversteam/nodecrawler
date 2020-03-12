@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "Node crawler",
     "main": "index.js",
+    "engines": {
+        "node": "10.14.x",
+        "npm": "6.4.x"
+    },
     "scripts": {
         "build": "tsc",
         "start": "npm run serve",
