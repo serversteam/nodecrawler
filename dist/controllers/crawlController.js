@@ -11,7 +11,7 @@ const bull_1 = __importDefault(require("bull"));
 const Crawl = mongoose_1.default.model('scraper', crawlModel_1.CrawlModel);
 class CrawlController {
     constructor() {
-        this.urlScraping = new bull_1.default('URL scraping', 'redis://127.0.0.1:6379');
+        this.urlScraping = new bull_1.default('URL scraping', process.env.REDIS_URL);
     }
     getData(req, res) {
         Crawl.find({}, (err, data) => {

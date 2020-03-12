@@ -18,7 +18,7 @@ const route_1 = require("./routes/route");
 class App {
     constructor() {
         this.route = new route_1.Route();
-        this.mongoUrl = 'mongodb://localhost:27017/NodeScraper';
+        this.mongoUrl = process.env.MONGODB_URI;
         this.app = express_1.default();
         this.configureApp();
         this.initializeMongoConnection();

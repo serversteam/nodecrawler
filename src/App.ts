@@ -9,7 +9,7 @@ class App {
     public app: express.Application;
     public corsOptions: cors.CorsOptions;
     public route: Route = new Route();
-    public mongoUrl: string = 'mongodb://localhost:27017/NodeScraper';
+    public mongoUrl: string = process.env.MONGODB_URI;
 
     constructor() {
         this.app = express();
